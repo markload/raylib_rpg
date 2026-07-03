@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 static void Init() {
     InitWindow(1408, 1408, "Game");
@@ -15,7 +16,8 @@ static void Draw() {
 }
 
 static void Update() {
-
+    float timer = GetFrameTime();
+    printf("%f\n", timer);
 }
 
 int main() {
