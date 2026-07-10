@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <stdlib.h>
 
-#include "include/animation.h"
+#include "../include/animation.h"
 
 
 static void Update(void *anim) {
@@ -33,6 +33,8 @@ Animation* NewAnimation(int max_frame, float speed) {
 
         return anim;
     }
+
+    free(anim);
     return NULL;
 }
 

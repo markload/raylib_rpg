@@ -2,8 +2,18 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+#include "include/player.h"
+
+// Global Variables
+#define TITLE "Game"
+#define SCREEN_W 1408
+#define SCREEN_H 1408
+#define TILE_SIZE 8
+
+Player pl;
+
 static void Init() {
-    InitWindow(1408, 1408, "Game");
+    InitWindow(SCREEN_W, SCREEN_H, TITLE);
 }
 
 static void DeInit() {

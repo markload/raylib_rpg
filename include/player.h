@@ -5,13 +5,13 @@
 #include "animation.h"
 
 
-typedef enum TypeAnim {
-    IDLE, WALK, ATTACK, DIE
+typedef enum {
+    IDLE, WALK, JUMP, DIE
 } TypeAnim;
 
 
 // Class Player
-typedef struct Player {
+typedef struct {
     Texture2D sprite;
     Rectangle src, dest;
     float speed;
@@ -27,6 +27,6 @@ typedef struct Player {
 } Player;
 
 Player* NewPlayer(Texture2D sprite, Rectangle src, Rectangle dest, int anim_max_frame, float anim_speed);
-void DelPlayer(Player *pl, Animation *anim);
+void DelPlayer(Player *pl);
 
 #endif

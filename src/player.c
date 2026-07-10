@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "include/player.h"
-#include "include/animation.h"
+#include "../include/player.h"
+#include "../include/animation.h"
 
 
 static void Update(void *pl) {
@@ -41,11 +41,12 @@ Player* NewPlayer(Texture2D sprite, Rectangle src, Rectangle dest, int anim_max_
         return pl;
     }
 
+    free(pl);
     return NULL;
 }
 
-void DelPlayer(Player *pl, Animation *anim) {
-    DelAnimation(anim);
+void DelPlayer(Player *pl) {
+    DelAnimation(pl->anim);
 
     UnloadTexture(pl->sprite);
     free(pl);

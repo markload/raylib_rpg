@@ -1,25 +1,32 @@
 CC=clang
 CFLAGS=-Wall -lraylib
-INCLUDES=-I include/
-SRC=$(wildcard *.c)
-OBJ=$(SRC:.c=.o)
+
+INCLUDES_DIR=include/
+SRC_DIR=src
+OBJ_DIR=obj
+
+SRC_FILES=$(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES=$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 TARGET=main
 
-all: $(TARGET) run
+.PHONY: all run clean
+
+all: $(TARGET) run clean
 
 # Links
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
-	@rm -rf $(OBJ)
+$(TARGET): $(OBJ_FILES)
+	$(CC) $(CFLAGS) -o $@ $^
 
 # Compile
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 run:
 	./$(TARGET)
 
 clean:
-	rm -rf $(OBJ) $(TARGET)
-
-.PHONY: all run clean
+	rm -rf $(OBJ_DIR)
+	rm -rf $(TARGET)

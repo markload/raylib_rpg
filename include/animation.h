@@ -3,7 +3,7 @@
 
 
 // Class Animation
-typedef struct Animation {
+typedef struct {
     int frame, max_frame, dir;
     float timer, speed;
 
