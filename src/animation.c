@@ -9,23 +9,25 @@ static void Update(void *anim) {
     self->timer += GetFrameTime();
     if (self->timer >= self->speed) {
         self->timer = 0.0f;
-        self->frame++;
+        self->current++;
     }
 
-    self->frame %= self->max_frame;
+    if (self->current > self->max_frame)
+        self->current = self->min_frame;
+
 }
 
 
-Animation* NewAnimation(int max_frame, float speed) {
+Animation* NewAnimation(int min_frame, int max_frame, float speed) {
     Animation *anim = (Animation*)malloc(sizeof(Animation));
 
     if (anim != NULL) {
         // Methods
+        anim->min_frame = min_frame;
         anim->max_frame = max_frame;
         anim->speed = speed;
 
-        anim->frame = 0;
-        anim->dir = 0;
+        anim->current = 0;
         anim->timer = 0.0f;
 
         // Functions

@@ -59,11 +59,7 @@ static void Draw(void *l) {
     Level *self = (Level*)l;
 }
 
-Level* NewLevel(
-        Texture2D tileset,
-        int tileset_size[2],
-        int tilesize,
-        char *filename) {
+Level* NewLevel(Texture2D tileset, int tileset_size[2], int tilesize, char *filename) {
     Level *l = (Level*)malloc(sizeof(Level));
 
     if (l != NULL) {

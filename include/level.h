@@ -17,13 +17,7 @@ typedef struct {
     void (*Draw)(void*);
 } Level;
 
-Level* NewLayer(
-        Texture2D tileset,
-        Vector2 tileset_size,
-        int tilesize,
-        char *filename
-);
-
+Level* NewLayer(Texture2D tileset, Vector2 tileset_size, int tilesize, char *filename);
 void DelLayer(Level* l);
 
 #endif

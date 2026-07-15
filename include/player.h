@@ -6,12 +6,16 @@
 
 
 typedef enum {
-    IDLE, WALK, JUMP, DIE
+    DOWN = 0,
+    RIGHT = 1,
+    UP = 2,
+    LEFT = 3
 } TypeAnim;
 
 
 // Class Player
 typedef struct {
+    int tilesize;
     Texture2D sprite;
     Rectangle src, dest;
     float speed;
@@ -21,12 +25,16 @@ typedef struct {
 
     void (*Update)(void*);
     void (*Draw)(void*);
-    void (*DeInit)(void*);
-
-    void (*Input)(void*);
 } Player;
 
-Player* NewPlayer(Texture2D sprite, Rectangle src, Rectangle dest, int anim_max_frame, float anim_speed);
+Player* NewPlayer(int tilesize,
+        Texture2D sprite,
+        Rectangle src,
+        Rectangle dest,
+        int anim_min_frame,
+        int anim_max_frame,
+        float anim_speed);
+
 void DelPlayer(Player *pl);
 
 #endif

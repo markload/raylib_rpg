@@ -8,7 +8,6 @@
 #define TITLE "Game"
 #define SCREEN_W 1408
 #define SCREEN_H 1408
-#define TILE_SIZE 8
 
 Player pl;
 
