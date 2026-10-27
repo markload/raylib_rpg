@@ -17,15 +17,15 @@ static void Input(void *pl) {
         self->moving = true;
     } else if (IsKeyDown(KEY_LEFT)) {
         self->dest.x -= self->speed;
-        self->type_anim = RIGHT;
+        self->type_anim = LEFT;
         self->moving = true;
     } else if (IsKeyDown(KEY_DOWN)) {
         self->dest.y += self->speed;
-        self->type_anim = RIGHT;
+        self->type_anim = DOWN;
         self->moving = true;
     } else if (IsKeyDown(KEY_UP)) {
         self->dest.y -= self->speed;
-        self->type_anim = RIGHT;
+        self->type_anim = UP;
         self->moving = true;
     }
 }
@@ -53,8 +53,6 @@ static void Draw(void *pl) {
 
 Player* NewPlayer(int tilesize,
                   Texture2D sprite,
-                  Rectangle src,
-                  Rectangle dest,
                   int anim_min_frame,
                   int anim_max_frame,
                   float anim_speed) {
@@ -64,8 +62,8 @@ Player* NewPlayer(int tilesize,
         // Methods
         pl->tilesize = tilesize;
         pl->sprite = sprite;
-        pl->src = src;
-        pl->dest = dest;
+        pl->src = (Rectangle){0, 0, tilesize, tilesize};
+        pl->dest = (Rectangle){10, 10, tilesize, tilesize};
 
         pl->speed = 1.0f;
         pl->moving = false;

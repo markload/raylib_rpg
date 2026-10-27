@@ -6,18 +6,25 @@
 
 typedef struct {
     Texture2D tileset;
-    int tileset_size[2];
+    int size[2];
+    int firstgid;
+} TilesetInfo;
+
+typedef struct {
+    int count_tilesets;
+    TilesetInfo *tilesets;
     int tilesize;
 
     int layers_size[2];
-    int **layer_bag, **layer_for, **layer_coll;
+    int **layer_back, **layer_fore, **layer_coll;
 
     char *filename;
 
     void (*Draw)(void*);
+    bool (*Collision)(void*, Rectangle);
 } Level;
 
-Level* NewLayer(Texture2D tileset, Vector2 tileset_size, int tilesize, char *filename);
-void DelLayer(Level* l);
+Level* NewLevel(int tilesize, char *filename);
+void DelLevel(Level* l);
 
 #endif

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-up" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="7">
+ <tileset firstgid="1" name="Indoors" tilewidth="16" tileheight="16" tilecount="168" columns="14">
+  <image source="../Assets/Pocket_RPG_v7/Indoors_misc.png" width="224" height="192"/>
+ </tileset>
+ <tileset firstgid="169" name="Furniture" tilewidth="16" tileheight="16" tilecount="216" columns="6">
+  <image source="../Assets/Pocket_RPG_v7/furniture.png" width="96" height="576"/>
+ </tileset>
+ <layer id="1" name="Background" width="10" height="10">
+  <data encoding="csv">
+50,51,51,51,51,51,51,51,51,52,
+64,25,26,26,26,26,26,26,27,66,
+64,101,101,101,101,101,101,101,101,66,
+64,101,101,101,101,101,101,101,101,66,
+64,101,101,101,101,101,101,101,101,66,
+64,101,101,101,101,101,101,101,101,66,
+64,101,101,101,101,101,101,101,101,66,
+64,101,101,101,101,101,101,101,101,66,
+78,79,79,63,107,107,62,79,79,80,
+2,2,2,78,79,79,80,6,6,6
+</data>
+ </layer>
+ <layer id="2" name="Foreground" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+0,252,0,0,0,0,217,218,349,0,
+0,169,170,212,0,0,223,224,355,0,
+0,175,176,0,0,0,0,0,0,0,
+0,0,0,0,197,198,216,0,0,0,
+0,0,0,216,203,204,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,245,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="3" name="Collision" width="10" height="10" visible="0">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,0,0,1,1,1,1,
+1,1,1,0,0,0,0,0,0,1,
+1,0,0,0,1,1,0,0,0,1,
+1,0,0,0,1,1,0,0,0,1,
+1,0,0,0,0,0,0,0,0,1,
+1,0,0,0,0,0,0,0,1,1,
+1,1,1,1,0,0,1,1,1,1,
+0,0,0,1,1,1,1,0,0,0
+</data>
+ </layer>
+ <objectgroup id="4" name="Objects">
+  <object id="1" x="64" y="142" width="32" height="2"/>
+  <object id="2" name="Здесь лишь куча мукулатуры" x="128" y="112" width="16" height="16"/>
+  <object id="4" name="Полью завтра" x="128" y="32" width="16" height="16"/>
+  <object id="5" name="Тубочка. Обычно в таких хранят вещи" x="48" y="32" width="16" height="16"/>
+  <object id="6" name="Крайне небрежная, но очень уютная кровать" x="16" y="48" width="32" height="16"/>
+ </objectgroup>
+</map>

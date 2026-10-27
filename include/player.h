@@ -29,8 +29,6 @@ typedef struct {
 
 Player* NewPlayer(int tilesize,
         Texture2D sprite,
-        Rectangle src,
-        Rectangle dest,
         int anim_min_frame,
         int anim_max_frame,
         float anim_speed);
